@@ -1,0 +1,50 @@
+body{
+    
+  font-family: Arial, sans-serif; 
+  margin: 0;
+  padding: 0;
+  background: rgb(132, 57, 4);
+
+}
+
+H1 {
+  text-align: center;
+  background: #800000;
+  color: white;
+  padding: 15px;
+}
+
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 40px;
+  align-items: center;
+  border-radius: 15px;
+}
+
+
+ button {
+  background-color: #800000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button button:hover{
+    background-color: rgb(99, 102, 104);
+    transition: 3s;
+    cursor: alias;
+}
+
+
+
+
+a{
+    background-color: rgb(7, 7, 110);
+
+}
+
