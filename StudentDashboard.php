@@ -1,16 +1,23 @@
-<?php include '../php/auth_check.php'; ?>
+<?php
+session_start();
+if(!isset($_SESSION['student_name'])){
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Dashboard</title>
-<link rel="stylesheet" href="../CSS/styleDashboard.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-<h1>Welcome, <?php echo $_SESSION['name']; ?></h1>
-<button onclick="logout()">Logout</button>
-<script src="../JS/logout.js"></script>
+    <div class="container">
+        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['student_name']); ?>!</h1>
+        <p>This is your dashboard.</p>
+        <a href="Logout.php">Logout</a>
+    </div>
 </body>
 </html>
