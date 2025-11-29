@@ -1,7 +1,10 @@
 <?php
-session_start();
-if(!isset($_SESSION['user_id'])){
-    header("Location: LoginStudent.php"); // redirect if not logged in
+// php/auth_check.php
+if (session_status() === PHP_SESSION_NONE) session_start();
+
+if (empty($_SESSION['user_id'])) {
+    // not logged in - redirect to login page
+    header('Location: /HTML/LoginStudent.html'); // adjust path to your login page
     exit;
 }
-?>
+

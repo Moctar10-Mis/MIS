@@ -1,19 +1,36 @@
-document.getElementById('registerForm').addEventListener('submit', async function(e){
+// JS/register.js
+document.addEventListener('DOMContentLoaded', ()=> {
+  const form = document.getElementById('registerForm'); // adjust if different
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const formData = new FormData(this);
+    const username = document.getElementById('username')?.value.trim();
+    const email = document.getElementById('email')?.value.trim();
+    const password = document.getElementById('password')?.value;
+    const role = document.querySelector('input[name="role"]:checked')?.value || 'student';
 
-    if(formData.get('password') !== formData.get('confirm_password')){
-        Swal.fire('Error','Passwords do not match','error');
-        return;
+    if (!username || !email || !password) {
+      alert('Please fill all fields');
+      return;
     }
 
-    const response = await fetch('php/signup.php',{ method:'POST', body:formData });
-    const result = await response.json();
-
-    if(result.success){
-        Swal.fire('Success','Registration successful','success')
-        .then(()=> window.location.href = 'LoginStudent.php');
-    } else {
-        Swal.fire('Error', result.message || 'Registration failed','error');
+    try {
+      const res = await fetch('/php/signup.php', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ username, email, password, role })
+      });
+      const data = await res.json();
+      if (data.success) {
+        alert('Account created. Redirecting to login.');
+        window.location.href = '/HTML/LoginStudent.html';
+      } else {
+        alert(data.message || 'Signup failed');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Network error');
     }
+  });
 });
