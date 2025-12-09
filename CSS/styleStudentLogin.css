@@ -1,0 +1,82 @@
+
+body {
+  font-family: Arial, sans-serif; 
+  margin: 0;
+  padding: 0;
+  background: #f7f9fc;
+}
+
+
+.head {
+  text-align: center;
+  background: #800000;
+  color: white;
+  padding: 15px;
+}
+
+
+.First {
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 40px;
+}
+
+
+.First_Name {
+  flex: 1;
+  max-width: 45%;
+}
+
+.First_Name form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.First_Name input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  
+}
+
+/* Right side section */
+.right-side {
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 300px;
+}
+
+
+.Button1 button,
+.Button2 button {
+  background-color: #800000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.Button1 button:hover,
+.Button2 button:hover {
+  background-color: #a00000;
+}
+
+
+.right-side p {
+  color: #333;
+  font-size: 16px;
+}
