@@ -4,7 +4,7 @@ $users = $stmt->fetchAll();
 ?>
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Users</title>
 <link rel="stylesheet" href="/CSS/style.css"></head><body>
-<div class="navbar"><a href="/HTML/StudentDashboard.php">Dashboard</a> <a href="#" class="btn-logout">Logout</a></div>
+<div class="navbar"><a href="StudentDashboard.php">Dashboard</a> <a href="#" class="btn-logout">Logout</a></div>
 <div class="container">
   <h2>All Users</h2>
   <table>

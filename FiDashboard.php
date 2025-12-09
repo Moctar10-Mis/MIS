@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../php/role_check.php';
+require_once ('php/role_check.php');
 require_role('faculty');
 ?>
 <!DOCTYPE html>
@@ -8,8 +8,8 @@ require_role('faculty');
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Faculty Dashboard</title>
-<link rel="stylesheet" href="../CSS/styleFacultyDashbord.css">
-<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="/CSS/styleFacultyDashbord.css">
+<link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
 <div class="navbar">
@@ -51,6 +51,6 @@ document.getElementById('createCourseForm').addEventListener('submit', async fun
   else alert('Error');
 });
 </script>
-<script src="../JS/logout.js"></script>
+<script src="JS/logout.js"></script>
 </body>
 </html>

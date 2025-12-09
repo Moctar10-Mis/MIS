@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../php/auth_check.php';
+require_once ('php/auth_check.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,8 +7,8 @@ require_once __DIR__ . '/../php/auth_check.php';
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Student Dashboard</title>
-<link rel="stylesheet" href="../CSS/styleStudentDashbord.css">
-<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="/CSS/styleStudentDashbord.css">
+<link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
 <div class="navbar">
@@ -24,7 +24,7 @@ require_once __DIR__ . '/../php/auth_check.php';
   <h3>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></h3>
   <div id="coursesList"></div>
 </div>
-<script src="../JS/courses.js"></script>
-<script src="../JS/logout.js"></script>
+<script src="/JS/courses.js"></script>
+<script src="/JS/logout.js"></script>
 </body>
 </html>

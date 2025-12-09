@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Attendance</title>
-  <link rel="stylesheet" href="../CSS/styleStudentLogin.css">
-  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="/CSS/styleStudentLogin.css">
+  <link rel="stylesheet" href="/CSS/style.css">
 </head>
 
 <body>
@@ -38,13 +38,13 @@
     
     <div class="right-side">
       <div class="Button1">
-        <a href="../HTML/StudentDashboard.php"><button type="submit">Login</button></a>
+        <a href="StudentDashboard.php"><button type="submit">Login</button></a>
       </div>
 
-      <p>Don't have an account? <a href="../HTML/RegisterStudent.php">Register here</a></p>
+      <p>Don't have an account? <a href="RegisterStudent.php">Register here</a></p>
 
       <div class="Button2">
-        <a href="../HTML/RegisterStudent.php"><button>Sign Up</button></a>
+        <a href="RegisterStudent.php"><button>Sign Up</button></a>
       </div>
     </div>
   </div>
