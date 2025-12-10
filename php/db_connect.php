@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";  
-$dbname = "attendance_db";
+$username = "moctar.issoufou";
+$password = "Mis10@.#";  
+$dbname = "webtech_2025A_moctar_issoufou";
 
 
 //Mis10@.#
