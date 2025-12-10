@@ -1,13 +1,47 @@
 <?php
 session_start();
-include 'php/db_connect.php'; // $conn from db_connect.php
+include 'php/db_connect.php'; 
 
 $error = "";
+
 
 if(isset($_POST['email']) && isset($_POST['password'])) {
 
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
+    $remember = isset($_POST['remember_me']); 
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    if($user && password_verify($password, $user['password'])) {
+        // Set session variables
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['first_name'] = $user['first_name'];
+        $_SESSION['role'] = $user['role'];
+
+        if($remember) {
+            // Set cookies for 30 days (less secure: password stored in cookie)
+            setcookie("user_email", $email, time() + (30*24*60*60), "/");
+            setcookie("user_password", $password, time() + (30*24*60*60), "/");
+        }
+
+        header("Location: StudentDashboard.php");
+        exit;
+    } else {
+        $error = "Incorrect email or password!";
+    }
+
+    $stmt->close();
+}
+
+// Auto-login using cookies if session not set
+if(!isset($_SESSION['user_id']) && isset($_COOKIE['user_email']) && isset($_COOKIE['user_password'])) {
+    $email = $_COOKIE['user_email'];
+    $password = $_COOKIE['user_password'];
 
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
@@ -19,14 +53,9 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['first_name'] = $user['first_name'];
         $_SESSION['role'] = $user['role'];
-
         header("Location: StudentDashboard.php");
         exit;
-    } else {
-        $error = "Incorrect email or password!";
     }
-
-    $stmt->close();
 }
 ?>
 
@@ -64,6 +93,10 @@ body { font-family: Arial; background-color: #f2f2f2; }
 
             <label>Password</label>
             <input type="password" name="password" placeholder="Enter your password" required>
+
+            <label>
+                <input type="checkbox" name="remember_me"> Remember Me
+            </label>
 
             <button type="submit">Login</button>
         </form>

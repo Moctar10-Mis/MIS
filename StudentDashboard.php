@@ -3,9 +3,7 @@ session_start();
 include __DIR__ . '/php/db_connect.php';
 require_once __DIR__ . '/php/auth_check.php';
 
-$conn = new mysqli('localhost', 'moctar.issoufou', '30692027', 'webtech_2025A_moctar_issoufou');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
