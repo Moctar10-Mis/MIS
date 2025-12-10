@@ -1,42 +1,51 @@
-
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #4b79a1, #283e51);
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .form-container {
-  background-color: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  text-align: center;
-  width: 300px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
 }
 
-input {
-  width: 90%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+.form-container h1 {
+    margin-bottom: 20px;
+    color: #333;
 }
 
-button {
-  width: 95%;
-  padding: 10px;
-  border: none;
-  background-color: #283e51;
-  color: white;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
+.form-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-button:hover {
-  background-color: #4b79a1;
+.form-container button {
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #2c7be5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #1a5bb8;
+}
+
+.form-container p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
 }

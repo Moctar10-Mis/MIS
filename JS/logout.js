@@ -1,22 +1,20 @@
-// JS/logout.js
-document.addEventListener('click', (e) => {
-  if (!e.target.matches('.btn-logout')) return;
-  e.preventDefault();
-  logout();
-});
-
-async function logout() {
-  try {
-    const res = await fetch('/php/logout.php', { method: 'POST' });
-    const data = await res.json();
-    if (data.logout) {
-      alert('Logged out');
-      window.location.href = '/HTML/LoginStudent.html';
-    } else {
-      alert('Logout failed');
+document.addEventListener('DOMContentLoaded', () => {
+    const logoutBtn = document.querySelector('.btn-logout');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', async function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            try {
+                const response = await fetch('logout.php', { method: 'POST' });
+                const data = await response.json();
+                if (data.success) {
+                    window.location.href = 'WELCOME.php'; // Redirect after logout
+                } else {
+                    alert('Logout failed. Please try again.');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Network error. Please refresh and try again.');
+            }
+        });
     }
-  } catch (err) {
-    console.error(err);
-    alert('Network error');
-  }
-}
+});

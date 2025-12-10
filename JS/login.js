@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
       const data = await res.json();
       if (data.success) {
         // redirect based on role
-        if (data.role === 'faculty') window.location.href = '/FiDashboard.php';
-        else window.location.href = '/StudentDashboard.php';
+        if (data.role === 'faculty') window.location.href = '../FiDashboard.php';
+        else window.location.href = '../StudentDashboard.php';
       } else {
         alert('Invalid credentials');
       }

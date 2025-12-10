@@ -1,54 +1,75 @@
+<?php
+session_start();
+include 'php/db_connect.php'; // $conn from db_connect.php
+
+$error = "";
+
+if(isset($_POST['email']) && isset($_POST['password'])) {
+
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    if($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['first_name'] = $user['first_name'];
+        $_SESSION['role'] = $user['role'];
+
+        header("Location: StudentDashboard.php");
+        exit;
+    } else {
+        $error = "Incorrect email or password!";
+    }
+
+    $stmt->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Attendance</title>
-  <link rel="stylesheet" href="/CSS/styleStudentLogin.css">
-  <link rel="stylesheet" href="/CSS/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Login</title>
+<link rel="stylesheet" href="CSS/styleStudentLogin.css">
+<style>
+/* Temporary inline CSS to test */
+body { font-family: Arial; background-color: #f2f2f2; }
+.login-container { display: flex; justify-content: center; align-items: center; height: 100vh; }
+.login-box { background: #fff; padding: 30px; border-radius: 10px; width: 350px; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+.login-box h1, .login-box h2 { text-align: center; }
+.login-box input { width: 100%; padding: 10px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; }
+.login-box button { width: 100%; padding: 10px; background: #0052cc; color: white; border: none; border-radius: 5px; cursor: pointer; }
+.login-box button:hover { background: #003d99; }
+.error { color: red; text-align: center; }
+.register-link { text-align: center; margin-top: 10px; }
+</style>
 </head>
-
 <body>
-  <div class="head"> 
-    <h1>Ashesi University</h1>
-   
-  </div>
+<div class="login-container">
+    <div class="login-box">
+        <h1>Ashesi University</h1>
+        <h2>Student Login</h2>
 
-  <div class="First">
-    <h1>Student Login</h1>
-  </div>
+        <?php if($error) echo "<p class='error'>$error</p>"; ?>
 
-  <div class="container">  
-    <div class="First_Name">
-      <form>
-        <label for="First Name"><strong>First Name:</strong> </label>
-        <input type="text" id="text" placeholder="User First Name">
+        <form method="POST" action="">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
 
-        <label for="Last Name"><strong>Last Name:</strong> </label>
-        <input type="text" id="text" placeholder="User Last Name">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
 
-        <label for="email"><strong>Email:</strong> </label>
-        <input type="email" id="email" placeholder="Enter your email">
+            <button type="submit">Login</button>
+        </form>
 
-        <label for="password"><strong>Password:</strong></label>
-        <input type="password" id="password" placeholder="Enter your password">
-      </form>
+        <p class="register-link">Don't have an account? <a href="RegisterStudent.php">Register here</a></p>
     </div>
-
-    
-    <div class="right-side">
-      <div class="Button1">
-        <a href="StudentDashboard.php"><button type="submit">Login</button></a>
-      </div>
-
-      <p>Don't have an account? <a href="RegisterStudent.php">Register here</a></p>
-
-      <div class="Button2">
-        <a href="RegisterStudent.php"><button>Sign Up</button></a>
-      </div>
-    </div>
-  </div>
+</div>
 </body>
-
-
-
+</html>

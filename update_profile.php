@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+include 'db.php';
 require_once ('php/db_connect.php');
 require_once ('php/auth_check.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

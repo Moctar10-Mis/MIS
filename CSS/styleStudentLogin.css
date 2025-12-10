@@ -1,82 +1,91 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-  font-family: Arial, sans-serif; 
-  margin: 0;
-  padding: 0;
-  background: #f7f9fc;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
 }
 
-
-.head {
-  text-align: center;
-  background: #800000;
-  color: white;
-  padding: 15px;
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-
-.First {
-  text-align: center;
-  margin-top: 10px;
-  color: #333;
+.login-box {
+    background-color: #fff;
+    padding: 40px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 40px;
+.login-box h1 {
+    margin-bottom: 10px;
+    color: #333;
 }
 
-
-.First_Name {
-  flex: 1;
-  max-width: 45%;
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #555;
+    font-weight: normal;
 }
 
-.First_Name form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
 
-.First_Name input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  
+.login-box label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-/* Right side section */
-.right-side {
-  flex: 1;
-  max-width: 45%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  height: 300px;
+.login-box input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-
-.Button1 button,
-.Button2 button {
-  background-color: #800000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
+.login-box button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #0052cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.Button1 button:hover,
-.Button2 button:hover {
-  background-color: #a00000;
+.login-box button:hover {
+    background-color: #003d99;
 }
 
+.error {
+    color: red;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
-.right-side p {
-  color: #333;
-  font-size: 16px;
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #0052cc;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
 }
