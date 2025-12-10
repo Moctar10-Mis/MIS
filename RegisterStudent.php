@@ -69,7 +69,7 @@ if(isset($_POST['register'])) {
         <input type="password" name="password" placeholder="User Password" required>
         <input type="password" name="confirm_password" placeholder="Confirm Your Password" required>
         <br><br>
-        <button type="submit" name="register">Register</button>
+        <button type="submit" name="register" >Register <a href="LoginStudent.php"></a></button>
     </form>
 </div>
 </body>

@@ -4,7 +4,7 @@ require __DIR__ . '/php/db_connect.php';
 require_once __DIR__ . '/php/auth_check.php';
 require_role('fi'); // Only allow FI users
 
-session_start(); // Make sure session is started
+
 
 // Redirect if user is not logged in
 if (!isset($_SESSION['user_id'])) {
@@ -27,7 +27,7 @@ function require_role($role) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Faculty Intern Dashboard</title>
-<link rel="stylesheet" href="CSS/styleFiDashboard.css">
+<link rel="stylesheet" href="CSS/styleFiDashbord.css">
 </head>
 <body>
 <div class="navbar">
